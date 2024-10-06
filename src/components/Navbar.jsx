@@ -14,6 +14,10 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
+    if (keyword === "") {
+      return;
+    }
+
     setIsOpen(false);
     setKeyword("");
     navigate(`/search/${keyword}`);
@@ -95,7 +99,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search perfumes..."
-                className="bg-pink-50 text-pink-600 placeholder-pink-400 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-pink-300"
+                className=" bg-pink-50 text-pink-600 placeholder-pink-400 rounded-full py-2 px-4 focus:outline-none focus:ring-2 focus:ring-pink-300"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
               />

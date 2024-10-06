@@ -17,7 +17,7 @@ export default function Login() {
   };
   const handleDemo = async (e) => {
     e.preventDefault();
-    await login({ username: "ravikant", password: "123456" });
+    await login({ username: "qwesdgfhj", password: "123456" });
   };
 
   return (
@@ -100,9 +100,9 @@ export default function Login() {
           <div className="mt-8">
             <button
               type="submit"
-              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-400"
+              className={`${loading?"cursor-progress":""} w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-400`}
             >
-              Log in to your Account
+              {loading ? "Logging-in" : "Log in to your Account"}
             </button>
           </div>
 

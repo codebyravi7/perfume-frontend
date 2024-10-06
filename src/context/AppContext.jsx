@@ -36,7 +36,20 @@ export const AuthContextProvider = ({ children }) => {
       confirmPassword,
       gender,
     });
-    if (!success) return;
+    if (!success) {
+      toast.error("Please fill in all fields correctly", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      return;
+    }
 
     setLoading(true);
     try {
@@ -66,15 +79,47 @@ export const AuthContextProvider = ({ children }) => {
       // Save user data to local storage and update authentication state
       localStorage.setItem("jwt", JSON.stringify(data));
       setAuthUser(data);
+      toast.success("Registered in successfully", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } catch (error) {
-      console.error(error.message); // Display error message
+      toast.error("Information incorrect", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } finally {
       setLoading(false); // Always execute after request completion
     }
   };
   const login = async ({ username, password }) => {
     if (!username || !password) {
-      alert("Please fill in all fields");
+      toast.error("Please fill in all fields", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      }); // Display error message
+
       return;
     }
     setLoading(true);
@@ -83,23 +128,43 @@ export const AuthContextProvider = ({ children }) => {
         `${url}/api/auth/login`,
         { username, password }, // Data to send in the body
         {
+          headers: {
+            "Content-Type": "Application/json",
+            Auth: token,
+          },
           withCredentials: true,
         }
       );
 
       const data = response.data;
-      if (data.error) {
-        throw new Error(data.error);
-      }
+      toast.success("logged in successfully", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
 
-      // Save user data to local storage and update authentication state
-      // console.log("data in login",data)
       localStorage.setItem("jwt", JSON.stringify(data));
       setAuthUser(data);
 
       return data;
     } catch (error) {
-      console.error(error.message); // Show error message in the UI
+      toast.error("Password Or Username incorrect", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } finally {
       setLoading(false); // Always execute after request completion
     }
@@ -120,8 +185,19 @@ export const AuthContextProvider = ({ children }) => {
       }
       if (data.success) localStorage.removeItem("jwt"); // Clear JWT from local storage
       setAuthUser(null);
+      toast.success("logged out successfully", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
     } catch (error) {
-      console.error(error.message); // Display error
+      console.log(error);
     } finally {
       setLoading(false); // Manage loading state
     }

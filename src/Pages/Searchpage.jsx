@@ -25,24 +25,31 @@ export default function Search() {
     fetchData();
   }, [keyword]);
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex items-center justify-center">
+    <>
       {loading ? (
         <Loading />
+      ) : data?.length == 0 ? (
+        <h1 className="text-2xl h-32 text-center p-12 ">
+          No post found eith keyword{" "}
+          <span className="text-pink-500 font-bold">"{keyword}"</span>
+        </h1>
       ) : (
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {data.map((item, index) => (
-            <PerfumeCard
-              key={index}
-              id={item?._id}
-              image={item.image}
-              name={item.name}
-              price_Actual={item.price_Actual}
-              price_Discounted={item.price_Discounted}
-              discount={item.discount}
-            />
-          ))}
+        <div className="min-h-screen bg-gray-100 p-4 flex items-center justify-center">
+          <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {data.map((item, index) => (
+              <PerfumeCard
+                key={index}
+                id={item?._id}
+                image={item.image}
+                name={item.name}
+                price_Actual={item.price_Actual}
+                price_Discounted={item.price_Discounted}
+                discount={item.discount}
+              />
+            ))}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
