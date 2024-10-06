@@ -3,6 +3,7 @@ import { useState } from "react";
 import logo from "../../public/logo.png";
 import loginImage from "../../public/login1.png";
 import { useAuthContext } from "../context/AppContext";
+
 export default function Login() {
   const [inputs, setInputs] = useState({
     username: "",
@@ -20,10 +21,10 @@ export default function Login() {
   };
 
   return (
-    <div className="pt-20 bg-gray-50 dark:bg-gray-800 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="pt-20 bg-pink-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden md:flex">
         {/* Sidebar Section */}
-        <div className="hidden md:flex flex-col justify-between bg-gradient-to-r from-gray-800 to-gray-600 p-8 text-white md:w-1/3">
+        <div className="hidden md:flex flex-col justify-between bg-gradient-to-r from-pink-700 to-pink-500 p-8 text-white md:w-1/3">
           <div className="space-y-6">
             <h4 className="text-xl font-semibold">Login to Your Account</h4>
             <p className="text-sm">
@@ -47,7 +48,7 @@ export default function Login() {
 
         {/* Form Section */}
         <form
-          className="bg-gray-50 dark:bg-gray-900 dark:text-white w-full md:w-2/3 p-8 md:px-16"
+          className="bg-pink-200 w-full md:w-2/3 p-8 md:px-16"
           onSubmit={handleSubmit}
         >
           <div className="mb-8 flex space-x-4 justify-center">
@@ -57,13 +58,15 @@ export default function Login() {
           {/* Inputs */}
           <div className="space-y-6">
             <div>
-              <label className=" text-sm mb-2 block">Username</label>
+              <label className="text-sm mb-2 block text-pink-600">
+                Username
+              </label>
               <div className="relative">
                 <input
                   name="username"
                   type="text"
                   required
-                  className="text-black w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="text-pink-600 w-full px-4 py-3 border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
                   placeholder="Enter username"
                   value={inputs.username}
                   onChange={(e) =>
@@ -74,13 +77,15 @@ export default function Login() {
             </div>
 
             <div>
-              <label className=" text-sm mb-2 block">Password</label>
+              <label className="text-sm mb-2 block text-pink-600">
+                Password
+              </label>
               <div className="relative">
                 <input
                   name="password"
                   type="password"
                   required
-                  className="text-black w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="text-pink-600 w-full px-4 py-3 border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
                   placeholder="Enter password"
                   value={inputs.password}
                   onChange={(e) =>
@@ -95,7 +100,7 @@ export default function Login() {
           <div className="mt-8">
             <button
               type="submit"
-              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-400"
             >
               Log in to your Account
             </button>
@@ -103,18 +108,18 @@ export default function Login() {
 
           <div className="mt-4">
             <button
-              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-600"
+              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-pink-700 hover:bg-pink-800 focus:outline-none focus:ring-2 focus:ring-pink-600"
               onClick={handleDemo}
             >
               Log in to Demo Account
             </button>
           </div>
 
-          <p className="text-gray-600 text-sm mt-4 text-center">
+          <p className="text-pink-600 text-sm mt-4 text-center">
             Don’t have an account?{" "}
             <Link
               to={"/register"}
-              className="text-blue-600 font-semibold hover:underline"
+              className="text-pink-600 font-semibold hover:underline"
             >
               Signup here.
             </Link>

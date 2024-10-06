@@ -52,7 +52,7 @@ function PerfumeCard({
     // console.log("Updated cart:", cart);
   };
   return (
-    <div className="w-72 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105">
+    <div className="w-80 px-2 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105">
       <div className="relative h-72">
         <img
           onClick={() =>
@@ -91,7 +91,7 @@ function PerfumeCard({
               },
             })
           }
-          className="text-lg font-semibold text-gray-900"
+          className="text-lg font-semibold text-gray-900 truncate"
         >
           {name}
         </button>

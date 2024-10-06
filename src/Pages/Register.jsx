@@ -30,10 +30,10 @@ export default function Register() {
   };
 
   return (
-    <div className="pt-20 bg-gray-50 dark:bg-gray-800 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="pt-20 bg-pink-50  min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg overflow-hidden md:flex">
         {/* Sidebar Section */}
-        <div className="hidden md:flex flex-col justify-between bg-gradient-to-r from-gray-800 to-gray-600 p-8 text-white md:w-1/3">
+        <div className="hidden md:flex flex-col justify-between bg-gradient-to-r from-pink-700 to-pink-500 p-8 text-white md:w-1/3">
           <div className="space-y-6">
             <h4 className="text-xl font-semibold">Create Your Account</h4>
             <p className="text-sm">
@@ -58,7 +58,7 @@ export default function Register() {
 
         {/* Form Section */}
         <form
-          className="bg-gray-50 dark:bg-gray-900 dark:text-white w-full md:w-2/3 p-8 md:px-16"
+          className="bg-pink-200 dark:text-white w-full md:w-2/3 p-8 md:px-16"
           onSubmit={handleSubmit}
         >
           <div className="mb-8 flex space-x-4 justify-center">
@@ -68,13 +68,13 @@ export default function Register() {
           {/* Inputs */}
           <div className="space-y-6">
             <div>
-              <label className="text-sm mb-2 block">Name</label>
+              <label className="text-sm mb-2 block text-pink-600">Name</label>
               <div className="relative">
                 <input
                   name="fullName"
                   type="text"
                   required
-                  className="text-black w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="text-pink-600 w-full px-4 py-3 border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
                   placeholder="Enter your name"
                   value={inputs.fullName}
                   onChange={(e) =>
@@ -85,13 +85,15 @@ export default function Register() {
             </div>
 
             <div>
-              <label className="text-sm mb-2 block">Username</label>
+              <label className="text-sm mb-2 block text-pink-600">
+                Username
+              </label>
               <div className="relative">
                 <input
                   name="username"
                   type="text"
                   required
-                  className="text-black w-full px-4 py-3  border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="text-pink-600 w-full px-4 py-3  border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
                   placeholder="Enter your username"
                   value={inputs.username}
                   onChange={(e) =>
@@ -102,13 +104,15 @@ export default function Register() {
             </div>
 
             <div>
-              <label className="text-sm mb-2 block">Password</label>
+              <label className="text-sm mb-2 block text-pink-600">
+                Password
+              </label>
               <div className="relative">
                 <input
                   name="password"
                   type="password"
                   required
-                  className="text-black w-full px-4 py-3  border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="text-pink-600 w-full px-4 py-3  border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
                   placeholder="Enter your password"
                   value={inputs.password}
                   onChange={(e) =>
@@ -119,13 +123,15 @@ export default function Register() {
             </div>
 
             <div>
-              <label className="text-sm mb-2 block">Confirm Password</label>
+              <label className="text-sm mb-2 block text-pink-600">
+                Confirm Password
+              </label>
               <div className="relative">
                 <input
                   name="confirmPassword"
                   type="password"
                   required
-                  className="text-black w-full px-4 py-3  border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="text-pink-600 w-full px-4 py-3  border border-pink-300 rounded-md focus:ring-2 focus:ring-pink-500 focus:outline-none"
                   placeholder="Confirm your password"
                   value={inputs.confirmPassword}
                   onChange={(e) =>
@@ -146,11 +152,11 @@ export default function Register() {
                 id="terms"
                 checked={isAccepted}
                 onChange={() => setIsAccepted(!isAccepted)}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-pink-600 focus:ring-pink-500 border-pink-300 rounded"
               />
               <label htmlFor="terms" className="text-gray-600 text-sm">
                 I accept the{" "}
-                <Link to="/terms" className="text-blue-600 font-semibold">
+                <Link to="/terms" className="text-pink-600 font-semibold">
                   terms and conditions
                 </Link>
               </label>
@@ -161,7 +167,7 @@ export default function Register() {
           <div className="mt-8">
             <button
               type="submit"
-              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full py-3 px-4 text-sm font-semibold rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-pink-400"
             >
               Create Your Account
             </button>
@@ -171,7 +177,7 @@ export default function Register() {
             Already have an account?{" "}
             <Link
               to={"/login"}
-              className="text-blue-600 font-semibold hover:underline"
+              className="text-pink-600 font-semibold hover:underline"
             >
               Log in here.
             </Link>
@@ -181,6 +187,7 @@ export default function Register() {
     </div>
   );
 }
+
 const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
   return (
     <div className="flex">
@@ -190,10 +197,10 @@ const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
             selectedGender === "male" ? "selected" : ""
           } `}
         >
-          <span className="label-text mr-2">Male</span>
+          <span className="label-text mr-2 text-pink-600">Male</span>
           <input
             type="checkbox"
-            className="checkbox border-slate-900"
+            className="checkbox border-pink-300"
             checked={selectedGender === "male"}
             onChange={() => onCheckboxChange("male")}
           />
@@ -205,10 +212,10 @@ const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
             selectedGender === "female" ? "selected" : ""
           }`}
         >
-          <span className="label-text mr-2">Female</span>
+          <span className="label-text mr-2 text-pink-600">Female</span>
           <input
             type="checkbox"
-            className="checkbox border-slate-900"
+            className="checkbox border-pink-300"
             checked={selectedGender === "female"}
             onChange={() => onCheckboxChange("female")}
           />

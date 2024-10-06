@@ -19,15 +19,6 @@ export const AuthContextProvider = ({ children }) => {
   const [reload, setReload] = useState(false);
   const [perfumes, setPerfumes] = useState([]);
   const [error, setError] = useState(false);
-  // const [likes, setLikes] = useState();
-
-  useEffect(() => {
-    const fetchdata = async () => {
-      console.log("i m reloading");
-      //   await showPosts();
-    };
-    fetchdata();
-  }, [reload, token]);
 
   const url = `${import.meta.env.VITE_APP_URL}`;
   //   const url = "https://perfume-backend-ivo0.onrender.com";
@@ -194,7 +185,6 @@ export const AuthContextProvider = ({ children }) => {
         loading,
         signup,
         logout,
-        perfumes,
         getPerfumes,
         searchPerfumes,
         getOnePerfume,

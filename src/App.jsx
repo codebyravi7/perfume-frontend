@@ -19,10 +19,8 @@ import Usercart from "./Pages/Usercart";
 import { useAuthContext } from "./context/AppContext";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
-import Loading from "./components/Smallcomps/Loading";
 function App() {
   const { authUser, perfumes } = useAuthContext();
-  console.log(authUser);
   return (
     <Router>
       <Navbar />
@@ -33,18 +31,13 @@ function App() {
           <Route
             path="/"
             element={
-              // authUser ? <h1 className="text-4xl pt-40">Hii</h1> : <Navigate to="/login" />
-              authUser ? (
-                <>
-                  {!authUser ? (
-                    <Loading title="Products" />
-                  ) : (
-                    <Home perfumes={perfumes} />
-                  )}
-                </>
-              ) : (
-                <Navigate to="/login" />
-              )
+              authUser ? <Home  /> : <Navigate to="/login" />
+            }
+          />
+          <Route
+            path="/:key"
+            element={
+              authUser ? <Home /> : <Navigate to="/login" />
             }
           />
           <Route
@@ -55,7 +48,6 @@ function App() {
             path="/register"
             element={authUser ? <Navigate to="/" /> : <Register />}
           />
-          <Route path="/:key" element={<Home />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />

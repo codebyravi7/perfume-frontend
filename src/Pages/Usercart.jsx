@@ -72,7 +72,7 @@ const Usercart = () => {
         key: "rzp_test_2ReqnK4PPqh72c",
         amount: orderAmount * 100,
         currency: "INR",
-        name: "E-COMMERCE",
+        name: "Petal & Musk",
         order_id: orderId,
         description: "Test Transaction",
         handler: function (response) {

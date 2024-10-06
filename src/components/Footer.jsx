@@ -10,7 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-import logo from '../../public/logo.png'
+import logo from "../../public/logo.png";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -28,11 +28,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <img
-              className="h-10"
-              src={logo}
-              alt="Company name"
-            />
+            <img className="h-10" src={logo} alt="Company name" />
             <p className="text-pink-100 text-sm">
               Crafting exquisite scents that captivate the senses and evoke
               unforgettable memories.
