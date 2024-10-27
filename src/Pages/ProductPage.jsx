@@ -12,6 +12,7 @@ const ZoomableImage = ({ src, alt }) => {
   const [backgroundPosition, setBackgroundPosition] = useState("0% 0%");
   const [isZoomed, setIsZoomed] = useState(false);
   const containerRef = useRef(null);
+  
 
   const handleMouseMove = (e) => {
     if (!containerRef.current) return;
@@ -55,7 +56,7 @@ const ProductPage = () => {
   const productUrl = currentUrl;
   const [data, setData] = useState([]);
   const { id } = useParams();
-  const { getOnePerfume } = useAuthContext();
+  const { getOnePerfume, handleAddToCart } = useAuthContext();
   useEffect(() => {
     async function fetchData() {
       const res = await getOnePerfume(id);
@@ -157,7 +158,11 @@ const ProductPage = () => {
                   </div>
                 </div>
                 <button className="w-full bg-pink-600 hover:bg-pink-700 text-white py-2 rounded flex items-center justify-center">
-                  <ShoppingCart className="mr-2" /> Add to Cart
+                  <ShoppingCart
+                    onClick={() => handleAddToCart(id)}
+                    className="mr-2"
+                  />{" "}
+                  Add to Cart
                 </button>
               </div>
             </div>

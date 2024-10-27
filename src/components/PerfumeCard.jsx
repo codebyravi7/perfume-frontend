@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuthContext } from "../context/AppContext";
 
 function PerfumeCard({
   id,
@@ -14,43 +15,7 @@ function PerfumeCard({
   const navigate = useNavigate();
   const temp = isProductInCart(id);
   const [incart, setIncart] = useState(temp);
-  const handleAddToCart = (productId) => {
-    // Get the existing cart from localStorage
-    setIncart(!incart);
-    toast.success(
-      incart
-        ? "Product Removed to cart successfully!"
-        : "Product Added to cart successfully!",
-      {
-        position: "top-right",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      }
-    );
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Check if the product ID already exists in the cart
-    if (cart.includes(productId)) {
-      // If the product ID is already in the cart, remove it
-      cart = cart.filter((id1) => id1 !== productId);
-      // console.log(`Product ${productId} removed from cart`);
-    } else {
-      // Otherwise, add the product ID to the cart
-      cart.push(productId);
-      // console.log(`Product ${productId} added to cart`);
-    }
-
-    // Save the updated cart back to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // console.log("Updated cart:", cart);
-  };
+  const { handleAddToCart } = useAuthContext();
   return (
     <div className="w-80 px-2 bg-white rounded-lg shadow-md overflow-hidden transform transition-transform duration-300 ease-in-out hover:shadow-lg hover:scale-105">
       <div className="relative h-72">

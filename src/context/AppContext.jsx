@@ -19,7 +19,6 @@ export const AuthContextProvider = ({ children }) => {
   const [reload, setReload] = useState(false);
   const [perfumes, setPerfumes] = useState([]);
   const [error, setError] = useState(false);
-
   const url = `${import.meta.env.VITE_APP_URL}`;
   //   const url = "https://perfume-backend-ivo0.onrender.com";
   const signup = async ({
@@ -250,6 +249,23 @@ export const AuthContextProvider = ({ children }) => {
       console.error("Error: ", err);
     }
   };
+  const handleAddToCart = (productId) => {
+    toast.success("Product Added to cart successfully!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push(productId);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
 
   return (
     <AuthContext.Provider
@@ -264,6 +280,7 @@ export const AuthContextProvider = ({ children }) => {
         getPerfumes,
         searchPerfumes,
         getOnePerfume,
+        handleAddToCart,
       }}
     >
       {children}
